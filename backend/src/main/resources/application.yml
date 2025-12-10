@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: banking-system
+  profiles:
+    active: local
+
+
+
+
+  

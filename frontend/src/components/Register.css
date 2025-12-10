@@ -1,0 +1,225 @@
+/* Modern Banking Register Styles */
+.register-container {
+  padding: 0;
+  margin: 0;
+}
+
+.register-background {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-dark .register-background {
+  background: radial-gradient(circle at top, #060d1f 0%, #0c162b 45%, #020617 100%);
+}
+
+.theme-bright .register-background {
+  background: radial-gradient(circle at top left, #fef7ff 0%, #f5fbff 40%, #ffffff 100%);
+}
+
+.register-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff08" points="0,1000 1000,0 1000,1000"/></svg>');
+  background-size: cover;
+}
+
+.register-card-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.register-card {
+  backdrop-filter: blur(18px);
+  background: rgba(15, 23, 42, 0.96);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: slideUp 0.6s ease-out;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+}
+
+.register-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.register-header {
+  background: linear-gradient(135deg, #111827 0%, #4b0082 55%, #020617 100%);
+  padding: 2rem 1.5rem 1.5rem;
+}
+
+.bank-logo {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.form-control-custom {
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: radial-gradient(circle at top left, #1f2937 0%, #020617 70%);
+  color: #e5f2ff;
+}
+
+.form-control-custom:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 0.15rem rgba(56, 189, 248, 0.35);
+  background: radial-gradient(circle at top left, #1f2937 0%, #020617 70%);
+  transform: translateY(-2px);
+}
+
+.btn-custom {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-custom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-custom:hover::before {
+  left: 100%;
+}
+
+.btn-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-custom:active {
+  transform: translateY(0);
+}
+
+.alert-custom {
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+  border-left: 4px solid #c0392b;
+}
+
+.alert-success-custom {
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+  color: white;
+  border-left: 4px solid #00695c;
+}
+
+.divider-custom {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.divider-custom::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #dee2e6, transparent);
+}
+
+.divider-custom span {
+  background: #fff;
+  padding: 0 1rem;
+  color: #6c757d;
+  font-size: 0.875rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Form Select Custom Styling */
+.form-select.form-control-custom {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23667eea' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-header {
+    padding: 1.5rem 1rem 1rem;
+  }
+  
+  .register-card {
+    margin: 1rem;
+    border-radius: 15px;
+  }
+  
+  .bank-logo i {
+    font-size: 2rem !important;
+  }
+  
+  .register-card .p-4 {
+    padding: 1.5rem !important;
+  }
+}
+
+/* Form Labels */
+.form-label {
+  color: #495057;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Link Hover Effects */
+a.text-decoration-none:hover {
+  text-decoration: underline !important;
+  transform: translateX(2px);
+  transition: all 0.2s ease;
+}
+
+/* Additional Form Enhancements */
+.form-control-custom::placeholder {
+  color: rgba(226, 232, 240, 0.7);
+}
+
+.form-control-custom:invalid {
+  border-color: rgba(148, 163, 184, 0.7);
+}
+
+.form-control-custom:valid {
+  border-color: rgba(148, 163, 184, 0.7);
+}

@@ -1,0 +1,187 @@
+/* Modern Navigation Styles */
+.custom-navbar {
+  background: linear-gradient(135deg, #3b82f6 0%, #7c3aed 100%) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.7);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+  padding: 0.4rem 0;
+  transition: all 0.3s ease;
+}
+
+.custom-navbar.scrolled {
+  background: rgba(102, 126, 234, 0.95) !important;
+  backdrop-filter: blur(20px);
+}
+
+.navbar-brand-custom {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand-custom:hover {
+  color: #f8f9fa !important;
+  transform: translateY(-2px);
+}
+
+.brand-text {
+  background: linear-gradient(45deg, #ffffff, #e3f2fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.navbar-brand-custom i {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+  to { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+}
+
+.nav-link-custom {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  margin: 0 0.05rem;
+  position: relative;
+  overflow: hidden;
+  font-size: 0.85rem;
+}
+
+.nav-link-custom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.nav-link-custom:hover::before {
+  left: 100%;
+}
+
+.nav-link-custom:hover {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link-custom:active {
+  transform: translateY(0);
+}
+
+.user-welcome {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  background: rgba(15, 23, 42, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 0.9rem;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #ffd700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.logout-btn {
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  color: white !important;
+  font-weight: 600;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  background: rgba(15, 23, 42, 0.15);
+  backdrop-filter: blur(10px);
+  font-size: 0.9rem;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
+}
+
+.navbar-toggler-custom {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-custom:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler-custom:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}
+
+/* Mobile Responsive */
+@media (max-width: 991.98px) {
+  .custom-navbar {
+    padding: 0.5rem 0;
+  }
+  
+  .navbar-brand-custom {
+    font-size: 1.25rem;
+  }
+  
+  .nav-link-custom {
+    margin: 0.25rem 0;
+    text-align: center;
+  }
+  
+  .user-welcome {
+    margin: 0.5rem 0;
+    justify-content: center;
+  }
+  
+  .logout-btn {
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+}
+
+/* Navbar collapse animation */
+.navbar-collapse {
+  transition: all 0.3s ease;
+}
+
+/* Add padding to body to account for fixed navbar */
+body {
+  padding-top: 80px;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}

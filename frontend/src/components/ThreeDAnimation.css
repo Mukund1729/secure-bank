@@ -1,0 +1,93 @@
+.three-d-animation {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #020617 0%, #020617 45%, #020617 100%);
+}
+
+.three-d-animation canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.animation-overlay {
+  display: none;
+}
+
+/* Glow effect on edges */
+.three-d-animation::after {
+  content: none;
+}
+
+.fps-counter {
+  display: none;
+}
+
+.mouse-indicator {
+  display: none;
+}
+
+.mouse-indicator::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #00ffff, #0084ff);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px #00ffff;
+}
+
+/* SecureLock3D illustration overrides (light, premium look) */
+.secure-lock-illustration {
+  background: transparent;
+  padding: 6px;
+}
+
+.secure-lock-illustration .secure-lock-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  animation: lockFloat 6s ease-in-out infinite;
+}
+
+.secure-lock-illustration .secure-lock-key {
+  transform-origin: 80px 126px;
+  animation: keySlide 2.6s ease-in-out infinite;
+}
+
+@keyframes lockFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.01);
+  }
+}
+
+@keyframes keySlide {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
