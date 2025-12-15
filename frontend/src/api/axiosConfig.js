@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 // 1. Determine the base URL
-// If the app is running in production (Render), use the Render Backend URL.
 // If running locally, use localhost.
+// If running in production (Render), use your live Backend URL.
 const API_BASE_URL = window.location.hostname === 'localhost'
   ? 'http://localhost:8080/api' 
-  : 'https://banking-backend.onrender.com/api'; // <--- REPLACE THIS LATER with your actual Render Backend URL
+  : 'https://secure-bank11.onrender.com/api'; // ✅ Updated: Aapka live backend URL
 
 // 2. Create the Axios instance
 const api = axios.create({
