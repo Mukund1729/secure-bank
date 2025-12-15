@@ -46,7 +46,7 @@ const Dashboard = () => {
 
   const fetchAccountData = async () => {
     try {
-      const response = await axios.get('/api/account/balance');
+      const response = await api.get('/api/account/balance');
       setAccount(response.data);
     } catch (error) {
       setError('Failed to fetch account data');
@@ -194,7 +194,7 @@ const Dashboard = () => {
   const fetchTransactions = async () => {
     try {
       if (account?.accountId) {
-        const response = await axios.get(`/api/transaction/statement/${account.accountId}`);
+        const response = await api.get(`/api/transaction/statement/${account.accountId}`);
         setTransactions(response.data.transactions || []);
       }
     } catch (error) {
@@ -204,7 +204,7 @@ const Dashboard = () => {
 
   const fetchLoans = async () => {
     try {
-      const response = await axios.get('/api/loan/status');
+      const response = await api.get('/api/loan/status');
       setLoans(response.data.loans || []);
     } catch (error) {
       console.error('Failed to fetch loans:', error);
@@ -229,7 +229,7 @@ const Dashboard = () => {
         payload.toAccountId = transactionData.toAccountId;
       }
 
-      const response = await axios.post(`/api/transaction/${transactionType}`, payload);
+      const response = await api.post(`/api/transaction/${transactionType}`, payload);
       setSuccess(response.data.message);
       setShowTransactionModal(false);
       fetchAccountData();
@@ -248,7 +248,7 @@ const Dashboard = () => {
         purpose: loanData.purpose
       };
 
-      const response = await axios.post('/api/loan/apply', payload);
+      const response = await api.post('/api/loan/apply', payload);
       setSuccess(response.data.message);
       setShowLoanModal(false);
       fetchLoans();
