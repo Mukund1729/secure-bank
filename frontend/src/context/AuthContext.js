@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import api from '../api/axiosConfig';
+import api from '../api/axiosConfig'; // ✅ Updated import
 
 const AuthContext = createContext();
 
@@ -18,8 +18,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      // Validate token with backend
+      // ✅ Interceptor ab headers handle karega, manual set karne ki zarurat nahi
       validateToken(token);
     } else {
       setLoading(false);
@@ -28,7 +27,8 @@ export const AuthProvider = ({ children }) => {
 
   const validateToken = async (token) => {
     try {
-      const response = await axios.post('/api/auth/validate');
+      // ✅ '/api' prefix hata diya kyunki axiosConfig mein already hai
+      const response = await api.post('/auth/validate');
       if (response.data.valid) {
         const userData = {
           email: response.data.username,
@@ -47,12 +47,14 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await axios.post('/api/auth/login', { username, password });
+      // ✅ axios ki jagah 'api' use kiya aur '/api' prefix hataya
+      const response = await api.post('/auth/login', { username, password });
       const { token, userId, name, email, role } = response.data;
       
       localStorage.setItem('token', token);
       localStorage.setItem('userId', userId);
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      
+      // Note: Interceptor automatically attaches token from localStorage now
       
       const userData = { userId, name, username, email, role };
       setUser(userData);
@@ -68,7 +70,8 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      const response = await axios.post('/api/auth/register', userData);
+      // ✅ axios ki jagah 'api' aur '/api' prefix hataya
+      const response = await api.post('/auth/register', userData);
       return { success: true, data: response.data };
     } catch (error) {
       return { 
@@ -81,7 +84,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
-    delete axios.defaults.headers.common['Authorization'];
+    // Header delete karne ki zarurat nahi, kyunki localStorage clear ho gaya
     setUser(null);
   };
 
@@ -99,3 +102,4 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
