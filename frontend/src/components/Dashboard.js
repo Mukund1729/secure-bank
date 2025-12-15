@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Card, Row, Col, Button, Form, Alert, Modal, Table, Container } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api/axiosConfig';
 import { useAuth } from '../context/AuthContext';
 import FinancialSphere3D from './FinancialSphere3D';
 import Chart from 'chart.js/auto';
